@@ -18,11 +18,7 @@ func main() {
 func runAsServer() {
 	go monitor_listener.ListenForClients()
 	go monitor_listener.PeriodicallyAdvertise()
-	// go monitor_listener.StartHttpdServer()
-	for {
-		// wait for something to happen
-		time.Sleep(1 * time.Minute)
-	}
+	monitor_listener.StartServer(8001)
 }
 
 func runAsAgent() {
